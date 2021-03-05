@@ -1,0 +1,895 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+p, hr {
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  padding: 10px 15px 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+header img {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+header nav {
+  margin: 10px;
+}
+
+header nav div {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+/*input transparente y en primer plano*/
+header nav div input {
+  z-index: 5;
+  width: 50px;
+  height: 30px;
+  opacity: 0;
+}
+
+/*menu navageble sin desplegar*/
+header nav div ul {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: #0436dd;
+  list-style: none;
+  height: 0;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  z-index: 3;
+}
+
+header nav div ul li {
+  position: relative;
+  text-align: center;
+  line-height: 60px;
+  width: 100vw;
+  display: none;
+}
+
+header nav div ul li a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin: auto 13px;
+  display: none;
+}
+
+/*menu navageble desplegado con transición*/
+header nav div input:checked ~ ul {
+  height: 240px;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+}
+
+header nav div input:checked ~ ul li {
+  position: relative;
+  text-align: center;
+  line-height: 60px;
+  width: 100vw;
+  display: block;
+}
+
+header nav div input:checked ~ ul li a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  margin: auto 13px;
+  display: block;
+}
+
+/*lineas del menu hamburguesa*/
+header nav div span {
+  display: block;
+  width: 25px;
+  height: 2.5px;
+  margin-bottom: 6.5px;
+  background-color: gray;
+  z-index: 1;
+  position: relative;
+  top: -42px;
+  right: -11px;
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+/*Pasando a cruz*/
+header nav div input:checked ~ span {
+  -webkit-transform: rotate(45deg) translate(11px, -2px);
+          transform: rotate(45deg) translate(11px, -2px);
+}
+
+header nav div input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(135deg) translate(-12px, 3px);
+          transform: rotate(135deg) translate(-12px, 3px);
+}
+
+header nav div input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+}
+
+/*Diseño para pantallas mayores a 1000 px*/
+@media screen and (min-width: 1000px) {
+  header nav div span {
+    background-color: white;
+  }
+  header nav div ul {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    list-style: none;
+    height: 0;
+  }
+  header nav div ul li {
+    display: inline;
+    position: relative;
+    top: 10px;
+    right: 30px;
+  }
+  header nav div ul li a {
+    color: gray;
+    display: inline;
+  }
+  header nav div ul li a:hover {
+    font-size: 18px;
+    color: #07eebb;
+    text-decoration: line-through;
+  }
+  header nav div ul li a:active {
+    text-decoration: line-through;
+    color: gray;
+  }
+  header nav div ul li:hover {
+    background-color: white;
+  }
+  header nav div input {
+    display: none;
+  }
+}
+
+body main {
+  width: 100%;
+  height: auto;
+}
+
+body main #presentacion {
+  position: relative;
+  margin-top: 30px;
+  padding: 0px;
+  width: 100%;
+  height: 260px;
+  z-index: 1;
+}
+
+body main #presentacion div {
+  width: 100%;
+  padding-left: 40px;
+  padding-top: 10px;
+}
+
+body main #presentacion div h1 {
+  font-size: 30px;
+  width: auto;
+  letter-spacing: -3px;
+  position: relative;
+  margin: 0;
+}
+
+body main #presentacion div p {
+  width: 75%;
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+body main #presentacion div a {
+  font-weight: bold;
+  font-size: 19px;
+  text-decoration: none;
+  color: black;
+  background-color: #07eebb;
+  height: 50px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body main #presentacion div a a:hover {
+  background-image: -linear-gradient(left, #07eebb, #0436dd);
+  background-image: -webkit-gradient(linear, left top, right top, from(#07eebb), to(#0436dd));
+  background-image: linear-gradient(to right, #07eebb, #0436dd);
+}
+
+@media screen and (min-width: 1000px) {
+  body main #presentacion {
+    position: relative;
+    top: 20px;
+    padding: 10px;
+    width: 80%;
+    height: auto;
+    margin: 0px;
+    padding: 0;
+  }
+  body main #presentacion div {
+    width: 100%;
+    position: relative;
+    top: 50px;
+    left: 10%;
+  }
+  body main #presentacion div h2 {
+    display: block;
+    font-size: 50px;
+  }
+  body main #presentacion div p {
+    width: 50%;
+    padding: 10px 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 25px;
+  }
+  body main #presentacion div a {
+    width: 200px;
+  }
+  body main #presentacion div a:hover {
+    background-image: -linear-gradient(left, #07eebb, #0436dd);
+    background-image: -webkit-gradient(linear, left top, right top, from(#07eebb), to(#0436dd));
+    background-image: linear-gradient(to right, #07eebb, #0436dd);
+  }
+}
+
+body main #podcasts {
+  position: relative;
+  top: -20px;
+  z-index: 0;
+}
+
+body main #podcasts #azul1 {
+  position: relative;
+  padding: 10%;
+  margin: 0 auto;
+  background-color: #0436dd;
+  -webkit-transform: skewY(-5deg);
+          transform: skewY(-5deg);
+  height: 1170px;
+}
+
+body main #podcasts #contenedor {
+  position: absolute;
+  top: 0;
+  padding: 10%;
+  margin: 0 auto;
+}
+
+body main #podcasts #contenedor h2 {
+  color: white;
+  margin: 20px;
+  position: relative;
+  top: -12px;
+}
+
+body main #podcasts #contenedor iframe {
+  border: 0;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1000px) {
+  body main #podcasts {
+    position: relative;
+    top: -90px;
+  }
+  body main #podcasts #azul1 {
+    position: relative;
+    top: 210px;
+    padding: 10%;
+    margin: 0 auto;
+    -webkit-transform: skewY(-5deg);
+            transform: skewY(-5deg);
+    height: 1000px;
+  }
+  body main #podcasts #contenedor {
+    width: 100%;
+    position: absolute;
+    top: 200px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 1fr 2fr 2fr;
+        grid-template-rows: 1fr 2fr 2fr;
+    grid-gap: 5%;
+    padding-right: 15%;
+    padding-top: 60px;
+    border: none;
+  }
+  body main #podcasts #contenedor h2 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+    margin-top: 50px;
+  }
+}
+
+body main #superposicion {
+  width: 100%;
+  height: 580px;
+  position: relative;
+}
+
+body main #superposicion img {
+  width: 65%;
+  height: auto;
+  margin: 0 7% 0 20%;
+  position: absolute;
+  top: -90px;
+}
+
+body main #superposicion h2, body main #superposicion p {
+  position: relative;
+  top: 300px;
+}
+
+body main #superposicion h2 {
+  font-size: 33px;
+  width: 60%;
+  margin: 0 32px;
+}
+
+body main #superposicion p {
+  width: 80%;
+  padding: 10px 0;
+  font-size: 13px;
+  margin: 0 auto;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 410px) {
+  body main #superposicion h2, body main #superposicion p {
+    position: relative;
+    top: 400px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  body main #superposicion h2, body main #superposicion p {
+    position: relative;
+    top: 500px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body main #superposicion h2, body main #superposicion p {
+    position: relative;
+    top: 600px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body main #superposicion h2, body main #superposicion p {
+    position: relative;
+    top: 710px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body main #superposicion h2, body main #superposicion p {
+    position: relative;
+    top: 840px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body main #superposicion {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 60% 40%;
+        grid-template-columns: 60% 40%;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 860px;
+    position: relative;
+  }
+  body main #superposicion img {
+    position: relative;
+    top: -10px;
+    left: 150px;
+    width: 60%;
+    margin: 0 50px;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  body main #superposicion h2 {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    position: absolute;
+    top: 30%;
+    left: 40px;
+    font-size: 44px;
+    margin: 0;
+  }
+  body main #superposicion p {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    position: relative;
+    top: 0;
+    left: -15px;
+  }
+}
+
+body main #invitadas {
+  position: relative;
+  top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 20px, (243px)[6];
+      grid-template-rows: 20px, repeat(6 243px);
+  margin: 30px 0;
+}
+
+body main #invitadas h2 {
+  font-size: 33px;
+  width: 60%;
+  margin: 0 32px;
+  padding-bottom: 30px;
+}
+
+body main #invitadas img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 500px) {
+  body main #invitadas {
+    position: relative;
+    top: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body main #invitadas {
+    position: relative;
+    top: 200px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body main #invitadas {
+    position: relative;
+    top: 300px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body main #invitadas {
+    position: relative;
+    top: 400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body main #invitadas {
+    position: relative;
+    top: -100px;
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: 110px, (auto)[2];
+        grid-template-rows: 110px, repeat(2, auto);
+  }
+  body main #invitadas h2 {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+    position: relative;
+    left: 80px;
+    font-size: 45px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body main #invitadas {
+    position: relative;
+    top: 100px;
+  }
+}
+
+body main #iconos {
+  display: -ms-grid;
+  display: grid;
+  grid-row: 40px auto;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+body main #iconos h2 {
+  font-size: 33px;
+  width: 100%;
+  padding: 20px;
+  letter-spacing: 0px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+body main #iconos div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (145px 20px)[4];
+      grid-template-rows: repeat(4, 145px 20px);
+  width: 100%;
+}
+
+body main #iconos div img {
+  padding: 40px 0 0 0;
+  margin: 0 auto;
+}
+
+body main #iconos div p {
+  padding-top: 8px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 500px) {
+  body main #iconos {
+    position: relative;
+    top: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body main #iconos {
+    position: relative;
+    top: 200px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body main #iconos {
+    position: relative;
+    top: 300px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body main #iconos {
+    position: relative;
+    top: 400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body main #iconos {
+    position: relative;
+    top: -50px;
+  }
+  body main #iconos h2 {
+    font-size: 40px;
+    width: 100%;
+    padding: 20px 70px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  body main #iconos div {
+    margin: 0;
+    padding: 0 70px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: 150px;
+        grid-template-rows: 150px;
+  }
+  body main #iconos div p {
+    padding-top: 18px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25px;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body main #iconos {
+    position: relative;
+    top: 100px;
+  }
+}
+
+body main #novedades {
+  position: relative;
+}
+
+body main #novedades #azul {
+  position: relative;
+  top: 50px;
+  padding: 10%;
+  margin: 0 auto;
+  background-color: #0436dd;
+  -webkit-transform: skewY(-5deg);
+          transform: skewY(-5deg);
+  height: 300px;
+  width: 100%;
+}
+
+body main #novedades #contenedor2 {
+  position: absolute;
+  top: 70px;
+  padding: 10%;
+  margin: 0 auto;
+}
+
+body main #novedades #contenedor2 h2 {
+  color: white;
+  margin: 20px;
+  position: relative;
+  top: -12px;
+  text-align: center;
+}
+
+body main #novedades #contenedor2 a {
+  width: 100%;
+  text-align: center;
+  background-color: #07eebb;
+  font-size: 19px;
+  height: auto;
+  padding: 10px 5px;
+  border-radius: 4px;
+  border: none;
+  z-index: 10;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+  margin: auto;
+}
+
+body main #novedades #contenedor2 a:hover {
+  background-image: -linear-gradient(left, #07eebb, blue);
+  background-image: -webkit-gradient(linear, left top, right top, from(#07eebb), to(blue));
+  background-image: linear-gradient(to right, #07eebb, blue);
+}
+
+@media screen and (min-width: 500px) {
+  body main #novedades {
+    position: relative;
+    top: 100px;
+  }
+  body main #novedades #contenedor2 a {
+    width: 80%;
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body main #novedades {
+    position: relative;
+    top: 200px;
+  }
+  body main #novedades #contenedor2 a {
+    width: 60%;
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body main #novedades {
+    position: relative;
+    top: 300px;
+  }
+  body main #novedades #contenedor2 a {
+    width: 40%;
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body main #novedades {
+    position: relative;
+    top: 400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body main #novedades {
+    position: relative;
+    top: 0;
+  }
+  body main #novedades #contenedor2 {
+    position: absolute;
+    top: 10px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  body main #novedades #contenedor2 h2 {
+    color: white;
+    margin: 20px;
+    position: relative;
+    top: -12px;
+    text-align: center;
+  }
+  body main #novedades #contenedor2 a {
+    width: 30%;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#A7F5D5), to(#1E8194));
+    background-image: linear-gradient(#A7F5D5, #1E8194);
+    font-size: 19px;
+    height: auto;
+    padding: 10px 5px;
+    border-radius: 4px;
+    border: none;
+    margin-left: 35%;
+  }
+  body main #novedades #contenedor2 a:hover {
+    background-image: radial-gradient(#07eebb, #0436dd);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body main #novedades {
+    position: relative;
+    top: 155px;
+  }
+  body main #novedades #contenedor2 {
+    position: absolute;
+    top: -10px;
+  }
+  body main #novedades a:hover {
+    background-image: radial-gradient(#07eebb, #0436dd);
+  }
+}
+
+body footer {
+  position: relative;
+  height: 70px;
+}
+
+body footer div {
+  width: 100%;
+  z-index: 2;
+  height: 70px;
+  background-color: white;
+  padding: 40px;
+}
+
+body footer div p {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+body footer div #contenedor3 {
+  width: 100%;
+  height: 20px;
+  margin: 0 auto;
+  padding: 20px 0 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body footer div #contenedor3 button {
+  background-image: radial-gradient(#07eebb, #0436dd);
+}
+
+@media screen and (min-width: 500px) {
+  body footer {
+    position: relative;
+    bottom: -90px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body footer {
+    position: relative;
+    bottom: -190px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  body footer {
+    position: relative;
+    bottom: -290px;
+  }
+  body footer div {
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body footer {
+    position: relative;
+    bottom: -400px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body footer {
+    position: relative;
+    bottom: 0;
+  }
+  body footer div {
+    height: 120px;
+  }
+  body footer div p {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 68%;
+    padding-left: 50px;
+  }
+  body footer div #contenedor3 {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body footer {
+    position: relative;
+    bottom: -125px;
+  }
+  body footer div {
+    height: 160px;
+  }
+  body footer div p {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 68%;
+    padding-left: 50px;
+  }
+  body footer div #contenedor3 {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 30%;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
